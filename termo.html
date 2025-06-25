@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentativa de Termo</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        #game-container {
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px; 
+            margin-top: 20px;
+        }
+
+        .tile {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ccc;
+            font-size: 2rem; 
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase; 
+            caret-color: transparent; 
+        }
+        
+        /* Remove as setas que aparecem em inputs do tipo number */
+        .tile::-webkit-outer-spin-button,
+        .tile::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        .tile[type=number] {
+          -moz-appearance: textfield;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div id="game-container">
+        <h1>TERMO</h1>
+        <div id="game-board">
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- CONFIGURAÇÕES ---
+            const NUMERO_DE_LINHAS = 6;
+            const TAMANHO_DA_PALAVRA = 5;
+
+            // --- ELEMENTOS DO DOM ---
+            const gameBoard = document.getElementById('game-board');
+
+            // --- CRIAÇÃO DA GRADE ---
+            function createGrid() {
+                for (let i = 0; i < NUMERO_DE_LINHAS * TAMANHO_DA_PALAVRA; i++) {
+                    const tile = document.createElement('input');
+                    tile.classList.add('tile');
+                    tile.type = 'text'; 
+                    tile.maxLength = 1; 
+                    tile.id = `tile-${i}`; 
+                    
+                    gameBoard.appendChild(tile);
+                }
+            }
+
+            // --- INPUT ---
+            function setupInputLogic() {
+                const tiles = document.querySelectorAll('.tile');
+
+                tiles.forEach((tile, index) => {
+                    tile.addEventListener('input', (e) => {
+                        if (e.target.value && index < tiles.length - 1) {
+                            tiles[index + 1].focus();
+                        }
+                    });
+
+                    tile.addEventListener('keydown', (e) => {
+                        if (e.key === 'Backspace' && !e.target.value && index > 0) {
+                            tiles[index - 1].focus();
+                        }
+                    });
+                });
+            }
+
+            createGrid();
+            setupInputLogic();
+        });
+    </script>
+
+</body>
+</html>
