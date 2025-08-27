@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo de Adivinhar Palavras de Quadrinhos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="menu-container">
+                <button id="menu-button" class="menu-button" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <div id="menu-dropdown" class="menu-dropdown">
+                    <button class="menu-item" data-length="6">6 Letras</button>
+                    <button class="menu-item" data-length="8">8 Letras</button>
+                    <button class="menu-item" data-length="10">10 Letras</button>
+                </div>
+            </div>
+            <h1>Adivinhe a Palavra dos Quadrinhos!</h1>
+            <button id="hint-button" title="Pedir uma dica">
+                <img src="https://cdn-icons-png.flaticon.com/512/2988/2988036.png" alt="Dica" style="width: 40px; height: 40px;">
+            </button>
+        </div>
+    </header>
+
+    <div id="main-wrapper">
+        <div id="game-wrapper">
+            <div id="game-container">
+                <div id="hint-area"></div>
+                <div id="game-board"></div>
+            </div>
+            <div id="keyboard"></div>
+        </div>
+        
+        <div id="hints-panel">
+            <h3>Letras Reveladas</h3>
+            <div id="revealed-hints-list"></div>
+        </div>
+    </div>
+
+    <div id="alert-modal" class="modal">
+        <div class="modal-content">
+            <p id="alert-message"></p>
+            <button class="restart-button" id="restart-button" style="display: none;">Jogar Novamente</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
