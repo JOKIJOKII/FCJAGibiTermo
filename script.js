@@ -34,10 +34,21 @@ function normalizeWord(word) {
     return word.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
 }
 
+// Reseta as cores do teclado
+function resetKeyboardColors() {
+    const keys = document.querySelectorAll('.key');
+    keys.forEach(key => {
+        key.classList.remove('correct', 'present', 'absent');
+    });
+}
+
 // Inicia ou reinicia o jogo
 function initializeGame(length) {
     // Limpa o tabuleiro
     gameBoard.innerHTML = '';
+    
+    // Reseta as cores do teclado
+    resetKeyboardColors();
     
     // Define o tamanho da palavra e número de tentativas
     tamanhoPalavra = length;
