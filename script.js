@@ -6,6 +6,7 @@ const listaDePalavras10Letras = [{"numero": 1,"palavra": "Passatempo", "dica": "
 
 // --- VARIÁVEIS GLOBAIS ---
 let palavraSecreta = '';
+let currentPosition = 0; // Posição atual de digitação
 let dicaAtual = '';
 let tentativas = 0;
 let maxTentativas = 6;
@@ -91,8 +92,29 @@ function createBoard() {
             tile.classList.add('tile');
             tile.dataset.row = i;
             tile.dataset.col = j;
+            
+            // Adiciona evento de clique para selecionar a posição
+            tile.addEventListener('click', () => {
+                // Só permite interação na linha atual
+                if (i === Math.floor(tentativas)) {
+                    // Remove a seleção de todos os tiles
+                    document.querySelectorAll('.tile').forEach(t => t.classList.remove('selected'));
+                    // Adiciona a classe de seleção ao tile clicado
+                    tile.classList.add('selected');
+                    // Atualiza a posição atual para a posição clicada
+                    currentPosition = j;
+                    // Atualiza a seleção visual no teclado
+                    updateKeyboardSelection();
+                }
+            });
+            
             gameBoard.appendChild(tile);
         }
+    }
+    
+    // Seleciona a primeira posição por padrão
+    if (gameBoard.firstChild) {
+        gameBoard.firstChild.classList.add('selected');
     }
 }
 
@@ -136,6 +158,27 @@ function createKeyboard() {
     });
 }
 
+// Atualiza a seleção visual no teclado
+function updateKeyboardSelection() {
+    // Remove a classe de destaque de todas as teclas
+    document.querySelectorAll('.key').forEach(key => {
+        key.classList.remove('key-highlight');
+    });
+    
+    // Adiciona a classe de destaque na tecla correspondente à posição atual
+    const currentRow = Math.floor(tentativas);
+    const tiles = document.querySelectorAll(`[data-row="${currentRow}"]`);
+    if (tiles[currentPosition]) {
+        const currentLetter = tiles[currentPosition].textContent.toLowerCase();
+        if (currentLetter) {
+            const key = document.querySelector(`[data-key="${currentLetter}"]`);
+            if (key) {
+                key.classList.add('key-highlight');
+            }
+        }
+    }
+}
+
 // Atualiza o botão de modo ativo
 function updateActiveModeButton() {
     document.querySelectorAll('.mode-button').forEach(button => {
@@ -162,27 +205,51 @@ function handleKeyPress(key) {
 
 // Adiciona uma letra ao tabuleiro
 function addLetter(letter) {
+    if (jogoAcabou) return;
+    
     const currentRow = Math.floor(tentativas);
     const tiles = document.querySelectorAll(`[data-row="${currentRow}"]`);
-    const emptyTile = Array.from(tiles).find(tile => !tile.textContent);
     
-    if (emptyTile) {
-        emptyTile.textContent = letter;
-        emptyTile.classList.add('filled');
+    // Adiciona a letra na posição atual
+    if (tiles[currentPosition]) {
+        tiles[currentPosition].textContent = letter.toUpperCase();
+        
+        // Move para a próxima posição, se disponível
+        if (currentPosition < tamanhoPalavra - 1) {
+            // Remove a seleção da posição atual
+            tiles[currentPosition].classList.remove('selected');
+            // Move para a próxima posição
+            currentPosition++;
+            // Adiciona a seleção na nova posição
+            tiles[currentPosition].classList.add('selected');
+        }
+        
+        // Atualiza a seleção no teclado
+        updateKeyboardSelection();
     }
 }
 
-// Remove a última letra
+// Remove a letra na posição atual ou anterior
 function deleteLetter() {
-    const currentRow = Math.floor(tentativas);
-    const tiles = Array.from(document.querySelectorAll(`[data-row="${currentRow}"]`));
-    const filledTiles = tiles.filter(tile => tile.textContent);
+    if (jogoAcabou) return;
     
-    if (filledTiles.length > 0) {
-        const lastFilledTile = filledTiles[filledTiles.length - 1];
-        lastFilledTile.textContent = '';
-        lastFilledTile.classList.remove('filled');
+    const currentRow = Math.floor(tentativas);
+    const tiles = document.querySelectorAll(`[data-row="${currentRow}"]`);
+    
+    // Se a posição atual estiver vazia, volta uma posição
+    if (!tiles[currentPosition].textContent && currentPosition > 0) {
+        currentPosition--;
+        tiles[currentPosition].classList.add('selected');
+        tiles[currentPosition + 1]?.classList.remove('selected');
     }
+    
+    // Remove a letra na posição atual
+    if (tiles[currentPosition]) {
+        tiles[currentPosition].textContent = '';
+    }
+    
+    // Atualiza a seleção no teclado
+    updateKeyboardSelection();
 }
 
 // Envia a tentativa
