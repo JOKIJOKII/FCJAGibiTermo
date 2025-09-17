@@ -18,20 +18,70 @@ body {
     color: var(--cor-texto);
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
     min-height: 100vh;
     margin: 0;
+    padding: 0;
     font-size: 24px;
     letter-spacing: 1px;
+    background-image: url('assets/img/fcjatermo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/* Footer */
+footer {
+    background-color: #ffb3b3;
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: auto;
+    border-top: 2px solid #e69999;
+    z-index: 10;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Ensure main content doesn't hide behind footer */
+#main-wrapper {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    z-index: -1;
 }
 
 /* Cabeçalho */
 header {
     width: 100%;
-    padding: 10px 0;
-    border-bottom: 2px solid var(--cor-borda);
+    padding: 12px 0;
+    border-bottom: 2px solid #e69999;
     position: relative;
+    background-color: #ffb3b3;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
 }
 
 .header-content {
@@ -51,70 +101,18 @@ header h1 {
     text-shadow: 2px 2px #eee;
     text-align: center;
     flex-grow: 1;
+    font-family: 'Just Me Again Down Here', cursive;
 }
 
-/* Menu Hamburguer */
-.menu-container {
-    position: relative;
-    z-index: 1000;
-}
-
-.menu-button {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
+.header-content {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    width: 40px;
-    height: 30px;
-    background-color: #f8f9fa;
-    border-radius: 4px;
-}
-
-.menu-button span {
-    display: block;
+    align-items: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px 20px;
     width: 100%;
-    height: 3px;
-    background-color: var(--cor-texto);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.menu-dropdown {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    border: 1px solid var(--cor-borda);
-    border-radius: 4px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    min-width: 150px;
-    z-index: 1000;
-    margin-top: 5px;
-}
-
-.menu-dropdown.show {
-    display: block;
-}
-
-.menu-item {
-    display: block;
-    width: 100%;
-    padding: 10px 15px;
-    text-align: left;
-    background: none;
-    border: none;
-    font-family: inherit;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-}
-
-.menu-item:hover {
-    background-color: #f0f0f0;
+    box-sizing: border-box;
 }
 
 #hint-button {
@@ -144,16 +142,203 @@ header h1 {
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
     padding: 10px;
     flex-grow: 1;
+    position: relative;
 }
 
 #game-wrapper {
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Side Panels */
+.side-panel {
+    width: 250px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    position: relative;
+}
+
+.left-panel {
+    margin-right: 10px;
+}
+
+.right-panel {
+    margin-left: 10px;
+}
+
+.panel-title {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #333;
+    text-align: center;
+}
+
+/* Modes Panel */
+.mode-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.mode-option {
+    padding: 12px;
+    font-size: 1.5rem;
+    font-family: 'Just Me Again Down Here', cursive;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    margin: 5px 0;
+    letter-spacing: 1px;
+}
+
+.mode-option:hover {
+    background-color: #e0e0e0;
+}
+
+.mode-option.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Mobile Panel Toggle */
+.mobile-panel-toggle {
+    display: none;
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: #4CAF50;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.mobile-panel-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: white;
+    margin: 2px 0;
+    transition: 0.3s;
+}
+
+/* Responsive Styles */
+@media (max-width: 1279px) {
+    /* Desktop: Show both panels */
+    .side-panel {
+        width: 220px;
+    }
+}
+
+@media (max-width: 1023px) {
+    /* Tablet: Hide right panel, show toggle */
+    .right-panel {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 280px;
+        height: 100vh;
+        z-index: 999;
+        margin: 0;
+        padding: 70px 20px 20px;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+        overflow-y: auto;
+    }
+    
+    .right-panel.active {
+        right: 0;
+    }
+    
+    .mobile-panel-toggle {
+        display: flex;
+    }
+    
+    #main-wrapper {
+        padding-right: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Mobile: Simplify layout */
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    #main-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px;
+        gap: 10px;
+    }
+    
+    .side-panel {
+        width: 100%;
+        margin: 0 0 10px 0;
+        padding: 10px;
+    }
+    
+    .panel-title {
+        font-size: 1.3rem;
+        margin-bottom: 10px;
+    }
+    
+    /* Hide panel titles on mobile */
+    .left-panel .panel-title {
+        display: none;
+    }
+    
+    .left-panel {
+        order: 1;
+        margin-top: 10px;
+        padding: 10px 0 0 0;
+        background: none;
+        box-shadow: none;
+    }
+    
+    .right-panel {
+        width: 280px;
+        right: -300px;
+    }
+    
+    .mobile-panel-toggle {
+        top: 70px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-panel-toggle {
+        top: 15px;
+        right: 15px;
+        width: 36px;
+        height: 36px;
+    }
+    
+    .mobile-panel-toggle span {
+        width: 18px;
+    }
 }
 
 /* Área de Dicas e Alertas */

@@ -1,9 +1,108 @@
 // --- BANCO DE PALAVRAS ---
-const listaDePalavras6Letras = [{"numero": 1,"palavra": "Mônica","dica": "Protagonista principal, conhecida por sua força e seu coelho Sansão."}, {"numero": 2,"palavra": "Cascão","dica": "Famoso por seu medo de água e por andar sempre sujinho."}, {"numero": 3,"palavra": "Cebola","dica": "Troca o 'R' pelo 'L' e cria planos 'infalíveis'."}, {"numero": 4,"palavra": "Magali","dica": "Tem um apetite insaciável, especialmente por melancia."}, {"numero": 5,"palavra": "Xaveco","dica": "Personagem cuja principal característica é ser o 'eterno secundário'."}, {"numero": 6,"palavra": "Penado","dica": "Fantasma que vive em um cemitério com outros monstros."}, {"numero": 7,"palavra": "Piteco","dica": "Homem das cavernas que vive na fictícia aldeia de Lem."}, {"numero": 8,"palavra": "Coelho","dica": "Em referência ao Sansão, o bichinho de pelúcia azul."}, {"numero": 9,"palavra": "Sansão","dica": "O nome oficial do coelho de pelúcia azul da Mônica."}, {"numero": 10,"palavra": "Mingau","dica": "O gato de estimação angorá da Magali."}, {"numero": 11,"palavra": "Marina","dica": "Adora desenhar e tem um lápis mágico."}, {"numero": 12,"palavra": "Denise","dica": "Conhecida por ser a mais descolada e fofoqueira."}, {"numero": 13,"palavra": "Nimbus","dica": "Amigo do Cascão que tem interesse por mágica e tempo."}, {"numero": 14,"palavra": "Aninha","dica": "A namorada ciumenta do Titi."}, {"numero": 15,"palavra": "Bairro","dica": "O famoso 'Bairro do Limoeiro'."}, {"numero": 16,"palavra": "Balões","dica": "Elemento gráfico para representar as falas dos personagens."}, {"numero": 17,"palavra": "Letras","dica": "Refere-se ao estilo do texto escrito nos gibis."}, {"numero": 18,"palavra": "Bolota","dica": "Uma onça-pintada amiga do Pererê, de Ziraldo."}, {"numero": 19,"palavra": "Sacaci","dica": "Um dos muitos primos do Saci que vivem na Mata do Fundão."}, {"numero": 20,"palavra": "Tônico","dica": "Primo do Chico Bento que mora na cidade."}];
-const listaDePalavras8Letras = [{"numero": 1,"palavra": "Jeremias","dica": "Amigo antigo do Cebolinha, conhecido por seu boné."}, {"numero": 2,"palavra": "Jotalhão","dica": "O elefante verde e desastrado da Turma da Mata."}, {"numero": 3,"palavra": "História","dica": "A narrativa contada em cada gibi."}, {"numero": 4,"palavra": "Quadrado","dica": "Cada um dos quadros que compõem uma página de gibi."}, {"numero": 5,"palavra": "Turminha","dica": "Forma carinhosa de se referir ao grupo de personagens."}, {"numero": 6,"palavra": "Mauricio","dica": "O criador da Turma da Mônica."}, {"numero": 7,"palavra": "Leitores","dica": "O público que acompanha as histórias em quadrinhos."}, {"numero": 8,"palavra": "Humberto","dica": "Personagem que se comunica apenas por mímica."}, {"numero": 9,"palavra": "Carminha","dica": "A personagem Carminha Frufru, vizinha rica da Mônica."}, {"numero": 10,"palavra": "Bolinha","dica": "Personagem da Turma da Luluzinha, líder do 'Clube dos Meninos'."}, {"numero": 11,"palavra": "Gibiteca","dica": "Uma biblioteca ou coleção especializada em gibis."}, {"numero": 12,"palavra": "Tirinhas","dica": "As histórias curtas publicadas em jornais."}, {"numero": 13,"palavra": "Limoeiro","dica": "O nome do bairro fictício onde vive a Turma da Mônica."}, {"numero": 14,"palavra": "Desenhar","dica": "A ação de criar os traços dos personagens e cenários."}, {"numero": 15,"palavra": "Clássico","dica": "Termo para uma história ou personagem antigo de grande sucesso."}, {"numero": 16,"palavra": "Aventura","dica": "Um dos gêneros mais comuns das histórias."}, {"numero": 17,"palavra": "Infância","dica": "Fase da vida associada à leitura de gibis."}, {"numero": 18,"palavra": "Diálogos","dica": "As conversas entre os personagens nos balões de fala."}, {"numero": 19,"palavra": "Artistas","dica": "Os profissionais que criam as histórias em quadrinhos."}, {"numero": 20,"palavra": "Malandro","dica": "Arquétipo personificado pelo papagaio Zé Carioca."}];
-const listaDePalavras10Letras = [{"numero": 1,"palavra": "Passatempo", "dica": "As atividades e jogos encontrados nos almanaques."}, {"numero": 2,"palavra": "Personagem", "dica": "Refere-se a qualquer figura de uma história, como a Mônica ou o Piteco."}, {"numero": 3, "palavra": "Colecionar", "dica": "O ato de juntar e guardar os gibis, um hobby muito popular."}, { "numero": 4, "palavra": "Republicar", "dica": "A ação de imprimir e publicar novamente uma história antiga."}, { "numero": 5, "palavra": "Letreirista", "dica": "O profissional que desenha as letras dos diálogos e das legendas." }, { "numero": 6, "palavra": "Jumentinho", "dica": "O Genesinho, o jumento de estimação e fiel companheiro do Chico Bento." }, { "numero": 7, "palavra": "Publicação", "dica": "O ato de produzir e lançar uma edição de um gibi." }, {"numero": 8, "palavra": "Dinossauro", "dica": "Em referência ao Horácio, o Tiranossauro Rex vegetariano e filósofo." }, {"numero": 9, "palavra": "Astronauta", "dica": "O personagem que viaja pelo espaço em sua nave redonda, o Astróide."},
-{"numero": 10, "palavra": "Revistinha", "dica": "Um termo popular e muito carinhoso para se referir aos gibis."}];
-
+const listaDePalavras6Letras = [
+    {"numero": 1, "palavra": "Mônica", "dica": "Protagonista principal, conhecida por sua força e seu coelho Sansão."},
+    {"numero": 2, "palavra": "Cascão", "dica": "Famoso por seu medo de água e por andar sempre sujinho."},
+    {"numero": 3, "palavra": "Cebola", "dica": "Troca o 'R' pelo 'L' e cria planos 'infalíveis'."},
+    {"numero": 4, "palavra": "Magali", "dica": "Tem um apetite insaciável, especialmente por melancia."},
+    {"numero": 5, "palavra": "Xaveco", "dica": "Personagem cuja principal característica é ser o 'eterno secundário'."},
+    {"numero": 6, "palavra": "Penado", "dica": "Fantasma que vive em um cemitério com outros monstros."},
+    {"numero": 7, "palavra": "Piteco", "dica": "Homem das cavernas que vive na fictícia aldeia de Lem."},
+    {"numero": 8, "palavra": "Coelho", "dica": "Em referência ao Sansão, o bichinho de pelúcia azul."},
+    {"numero": 9, "palavra": "Sansão", "dica": "O nome oficial do coelho de pelúcia azul da Mônica."},
+    {"numero": 10, "palavra": "Mingau", "dica": "O gato de estimação angorá da Magali."},
+    {"numero": 11, "palavra": "Marina", "dica": "Adora desenhar e tem um lápis mágico."},
+    {"numero": 12, "palavra": "Denise", "dica": "Conhecida por ser a mais descolada e fofoqueira."},
+    {"numero": 13, "palavra": "Nimbus", "dica": "Amigo do Cascão que tem interesse por mágica e tempo."},
+    {"numero": 14, "palavra": "Aninha", "dica": "A namorada ciumenta do Titi."},
+    {"numero": 15, "palavra": "Bairro", "dica": "O famoso 'Bairro do Limoeiro'."},
+    {"numero": 16, "palavra": "Balões", "dica": "Elemento gráfico para representar as falas dos personagens."},
+    {"numero": 17, "palavra": "Letras", "dica": "Refere-se ao estilo do texto escrito nos gibis."},
+    {"numero": 18, "palavra": "Bolota", "dica": "Uma onça-pintada amiga do Pererê, de Ziraldo."},
+    {"numero": 19, "palavra": "Sacaci", "dica": "Um dos muitos primos do Saci que vivem na Mata do Fundão."},
+    {"numero": 20, "palavra": "Tônico", "dica": "Primo do Chico Bento que mora na cidade."},
+    //15 novas palavras abaixo
+    {"numero": 21, "palavra": "Chapéu", "dica": "Acessório comum no visual do Chico Bento."},
+    {"numero": 22, "palavra": "Banana", "dica": "Fruta simples e amarela, fácil de encontrar."},
+    {"numero": 23, "palavra": "Colher", "dica": "Talher usado para comer e servir."},
+    {"numero": 24, "palavra": "Blocos", "dica": "Conjunto de peças para montar e brincar."},
+    {"numero": 25, "palavra": "Tomate", "dica": "Fruta vermelha, presente em saladas."},
+    {"numero": 26, "palavra": "Boneco", "dica": "Brinquedo clássico de muitas crianças."},
+    {"numero": 27, "palavra": "Sapato", "dica": "Usado nos pés para caminhar."},
+    {"numero": 28, "palavra": "Bolhas", "dica": "Formadas no banho ou ao assoprar sabão."},
+    {"numero": 29, "palavra": "Pepino", "dica": "Vegetal verde, crocante e refrescante."},
+    {"numero": 30, "palavra": "Traves", "dica": "Parte do gol em jogos de futebol."},
+    {"numero": 31, "palavra": "Violão", "dica": "Instrumento musical de cordas."},
+    {"numero": 32, "palavra": "Botões", "dica": "Usados em camisas e aparelhos."},
+    {"numero": 33, "palavra": "Pipoca", "dica": "Petisco popular em cinemas e festas."},
+    {"numero": 34, "palavra": "Caneta", "dica": "Objeto usado para escrever."},
+    {"numero": 35, "palavra": "Apitos", "dica": "Usado pelo juiz em partidas esportivas."}
+  ];
+  const listaDePalavras8Letras = [
+    {"numero": 1,"palavra": "Jeremias","dica": "Amigo antigo do Cebolinha, conhecido por seu boné."},
+    {"numero": 2,"palavra": "Jotalhão","dica": "O elefante verde e desastrado da Turma da Mata."},
+    {"numero": 3,"palavra": "História","dica": "A narrativa contada em cada gibi."},
+    {"numero": 4,"palavra": "Quadrado","dica": "Cada um dos quadros que compõem uma página de gibi."},
+    {"numero": 5,"palavra": "Turminha","dica": "Forma carinhosa de se referir ao grupo de personagens."},
+    {"numero": 6,"palavra": "Mauricio","dica": "O criador da Turma da Mônica."},
+    {"numero": 7,"palavra": "Leitores","dica": "O público que acompanha as histórias em quadrinhos."},
+    {"numero": 8,"palavra": "Humberto","dica": "Personagem que se comunica apenas por mímica."},
+    {"numero": 9,"palavra": "Carminha","dica": "A personagem Carminha Frufru, vizinha rica da Mônica."},
+    {"numero": 10,"palavra": "Bolinha","dica": "Personagem da Turma da Luluzinha, líder do 'Clube dos Meninos'."},
+    {"numero": 11,"palavra": "Gibiteca","dica": "Uma biblioteca ou coleção especializada em gibis."},
+    {"numero": 12,"palavra": "Tirinhas","dica": "As histórias curtas publicadas em jornais."},
+    {"numero": 13,"palavra": "Limoeiro","dica": "O nome do bairro fictício onde vive a Turma da Mônica."},
+    {"numero": 14,"palavra": "Desenhar","dica": "A ação de criar os traços dos personagens e cenários."},
+    {"numero": 15,"palavra": "Clássico","dica": "Termo para uma história ou personagem antigo de grande sucesso."},
+    {"numero": 16,"palavra": "Aventura","dica": "Um dos gêneros mais comuns das histórias."},
+    {"numero": 17,"palavra": "Infância","dica": "Fase da vida associada à leitura de gibis."},
+    {"numero": 18,"palavra": "Diálogos","dica": "As conversas entre os personagens nos balões de fala."},
+    {"numero": 19,"palavra": "Artistas","dica": "Os profissionais que criam as histórias em quadrinhos."},
+    {"numero": 20,"palavra": "Malandro","dica": "Arquétipo personificado pelo papagaio Zé Carioca."},
+    //Novas 15 palravras ai
+    {"numero": 21,"palavra": "Revistas","dica": "Publicações onde os gibis são vendidos."},
+    {"numero": 22,"palavra": "Roteiros","dica": "Guias que estruturam as histórias."},
+    {"numero": 23,"palavra": "Fantasia","dica": "Gênero que mistura magia e aventura."},
+    {"numero": 24,"palavra": "Inimigos","dica": "Aqueles que enfrentam os protagonistas."},
+    {"numero": 25,"palavra": "Especial","dica": "Edição diferente ou com temas especiais."},
+    {"numero": 26,"palavra": "Cartoons","dica": "Animações inspiradas nos quadrinhos."},
+    {"numero": 27,"palavra": "Editores","dica": "Profissionais que revisam e publicam gibis."},
+    {"numero": 28,"palavra": "Desenhos","dica": "Ilustrações que dão vida às histórias."},
+    {"numero": 29,"palavra": "Colecoes","dica": "Conjunto de revistas guardadas."},
+    {"numero": 30,"palavra": "Bonequin","dica": "Pequenos bonecos ou brinquedos dos personagens."},
+    {"numero": 31,"palavra": "Narrador","dica": "Quem conta a história dentro dos quadrinhos."},
+    {"numero": 32,"palavra": "Capitulo","dica": "Divisão de uma história longa em partes."},
+    {"numero": 33,"palavra": "Falantes","dica": "Referência aos que falam nos balões de fala."},
+    {"numero": 34,"palavra": "Exemplar","dica": "Uma unidade de revista ou gibi."},
+    {"numero": 35,"palavra": "Desenhar","dica": "Ação de criar as ilustrações da história."}
+  ];
+  const listaDePalavras10Letras = [
+    {"numero": 1, "palavra": "Passatempo", "dica": "As atividades e jogos encontrados nos almanaques."},
+    {"numero": 2, "palavra": "Personagem", "dica": "Refere-se a qualquer figura de uma história, como a Mônica ou o Piteco."},
+    {"numero": 3, "palavra": "Colecionar", "dica": "O ato de juntar e guardar os gibis, um hobby muito popular."},
+    {"numero": 4, "palavra": "Republicar", "dica": "A ação de imprimir e publicar novamente uma história antiga."},
+    {"numero": 5, "palavra": "Letramento", "dica": "Relaciona-se ao uso das letras e leitura nas histórias."},
+    {"numero": 6, "palavra": "Jumentinho", "dica": "O Genesinho, o jumento de estimação e fiel companheiro do Chico Bento."},
+    {"numero": 7, "palavra": "Publicacao", "dica": "O ato de produzir e lançar uma edição de um gibi."},
+    {"numero": 8, "palavra": "Dinossauro", "dica": "Em referência ao Horácio, o Tiranossauro Rex vegetariano e filósofo."},
+    {"numero": 9, "palavra": "Astronauta", "dica": "O personagem que viaja pelo espaço em sua nave redonda, o Astróide."},
+    {"numero": 10, "palavra": "Revistinha", "dica": "Um termo popular e muito carinhoso para se referir aos gibis."},
+    {"numero": 11, "palavra": "Brinquedos", "dica": "Objetos para brincar — bonecos, blocos e carrinhos."},
+    {"numero": 12, "palavra": "Explorador", "dica": "Personagem que gosta de descobrir lugares novos."},
+    {"numero": 13, "palavra": "Descoberta", "dica": "Algo novo que se encontra nas aventuras."},
+    {"numero": 14, "palavra": "Competicao", "dica": "Disputa entre personagens, como corridas ou desafios."},
+    {"numero": 15, "palavra": "Imaginacao", "dica": "A capacidade de criar mundos e aventuras na mente."},
+    {"numero": 16, "palavra": "Fantastico", "dica": "Algo mágico, divertido e fora do comum."},
+    {"numero": 17, "palavra": "Peluchinho", "dica": "Um bichinho de pelúcia fofo que as crianças adoram."},
+    {"numero": 18, "palavra": "Encantador", "dica": "Algo que encanta e chama a atenção das crianças."},
+    {"numero": 19, "palavra": "Marionetes", "dica": "Bonecos controlados por fios, usados em teatros."},
+    {"numero": 20, "palavra": "Docinhinho", "dica": "Pequeno doce que aparece em festas e histórias."},
+    {"numero": 21, "palavra": "Observador", "dica": "Quem repara nos detalhes das histórias."},
+    {"numero": 22, "palavra": "Ilustracao", "dica": "Imagem feita para acompanhar a história."},
+    {"numero": 23, "palavra": "Historinha", "dica": "Uma história curtinha, divertida e fácil de ler."},
+    {"numero": 24, "palavra": "Quadrinhos", "dica": "As páginas com desenhos que contam a história."},
+    {"numero": 25, "palavra": "Contadores", "dica": "Pessoas que contam as histórias, narradores ou autores."}
+  ];
+  
 // --- VARIÁVEIS GLOBAIS ---
 let palavraSecreta = '';
 let currentPosition = 0; // Posição atual de digitação
@@ -488,28 +587,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // Cria o teclado
     createKeyboard();
     
+    // Elementos do DOM
+    const mobileModesToggle = document.getElementById('mobile-modes-toggle');
+    const modesPanel = document.getElementById('modes-panel');
+    const modeOptions = document.querySelectorAll('.mode-option');
+    
     // Inicia o jogo com o modo padrão (6 letras)
     initializeGame(6);
     
-    // Menu hamburguer
-    menuButton.addEventListener('click', (e) => {
+    // Funções para o menu de modos mobile
+    function toggleModesPanel() {
+        modesPanel.classList.toggle('active');
+        document.body.style.overflow = modesPanel.classList.contains('active') ? 'hidden' : '';
+    }
+    
+    function closeModesPanel() {
+        modesPanel.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+    
+    // Toggle do painel de modos mobile
+    mobileModesToggle.addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleMenu();
+        toggleModesPanel();
     });
     
-    // Fechar menu ao clicar fora
+    // Fechar painel de modos se clicar fora
     document.addEventListener('click', (e) => {
-        if (!menuButton.contains(e.target) && !menuDropdown.contains(e.target)) {
-            closeMenu();
+        if (!modesPanel.contains(e.target) && !mobileModesToggle.contains(e.target)) {
+            closeModesPanel();
         }
     });
     
-    // Itens do menu
-    menuItems.forEach(item => {
-        item.addEventListener('click', (e) => {
-            const length = parseInt(e.target.dataset.length);
-            initializeGame(length);
-            closeMenu();
+    // Seleção de modo
+    function selectMode(length) {
+        initializeGame(parseInt(length));
+        closeModesPanel();
+        
+        // Atualiza o modo ativo nos botões
+        modeOptions.forEach(option => {
+            if (parseInt(option.dataset.length) === parseInt(length)) {
+                option.classList.add('active');
+            } else {
+                option.classList.remove('active');
+            }
+        });
+    }
+    
+    // Event listeners para os botões de modo
+    modeOptions.forEach(option => {
+        option.addEventListener('click', (e) => {
+            selectMode(e.target.dataset.length);
         });
     });
     
